@@ -15,6 +15,7 @@ install:
 
 script:
   - travis_wait 30 ./bin/mlpack_test -p
+  - python cpplint.py --extensions=hpp,cpp $(find ./src/mlpack/core -type f ! -path "./src/mlpack/core/arma_extend/*" ! -path "./src/mlpack/core/boost_backport/*")
 
 notifications:
   email:
